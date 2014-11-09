@@ -9,7 +9,7 @@ You can `run test-network`.
 
 ## pt-summary
 
-Get configuration of the server which is useful for benchmark.
+Print out all the configuration of the server, including CPU, Memory, Disk and so on. It's really useful to get configuration before benchmarking systems.
 
 You can `run pt-summary`.
 
