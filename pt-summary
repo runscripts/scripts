@@ -20,25 +20,13 @@ export POSIXLY_CORRECT
 #   lib/bash/log_warn_die.sh
 #   t/lib/bash/log_warn_die.sh
 # See https://launchpad.net/percona-toolkit for more information.
-# ###########################################################################
+# #############################
+     0K .......... .......... .......... .......... .......... 57% 1.06K 36s
+    50K .......... .......... .......... .......              100% 2.42K=63s
 
+2014-11-24 21:20:41 (1.39 KB/s) - ‘pt-summary’ saved [89799/89799]
 
-set -u
-
-PTFUNCNAME=""
-PTDEBUG="${PTDEBUG:-""}"
-EXIT_STATUS=0
-
-ts() {
-   TS=$(date +%F-%T | tr ':-' '_')
-   echo "$TS $*"
-}
-
-info() {
-   [ ${OPT_VERBOSE:-3} -ge 3 ] && ts "$*"
-}
-
-log() {
+og() {
    [ ${OPT_VERBOSE:-3} -ge 2 ] && ts "$*"
 }
 
@@ -319,6 +307,8 @@ _parse_config_files() {
          config_opt="$(echo "$config_opt" | sed -e 's/^ *//g' -e 's/ *$//g' -e 's/[ ]*=[ ]*/=/' -e 's/[ ]*#.*$//')"
 
          [ "$config_opt" = "" ] && continue
+
+         echo "$config_opt" | grep -v 'version-check' >/dev/null 2>&1 || continue
 
          if ! [ "$HAVE_EXT_ARGV" ]; then
             config_opt="--$config_opt"
@@ -2691,7 +2681,7 @@ Place, Suite 330, Boston, MA  02111-1307  USA.
 
 =head1 VERSION
 
-pt-summary 2.2.11
+pt-summary 2.2.12
 
 =cut
 
