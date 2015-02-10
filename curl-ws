@@ -1,0 +1,7 @@
+#!/bin/sh
+
+curl -N \
+    -H "Connection: Upgrade" -H "Upgrade: WebSocket" \
+    -H "Sec-WebSocket-Version: 13" \
+    -H "Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==" \
+    "$@"
