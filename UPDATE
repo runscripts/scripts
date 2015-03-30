@@ -3,6 +3,7 @@
 scripts=(
     "pt-summary" "http://percona.com/get/pt-summary"
     "get-pip.py" "https://bootstrap.pypa.io/get-pip.py"
+    "redis-faina.py" "https://raw.githubusercontent.com/facebookarchive/redis-faina/master/redis-faina.py"
 )
 
 DL="wget -Nq "
